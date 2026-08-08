@@ -10,6 +10,7 @@ owner: Li-Chang
 start_date: 2026-08-08
 end_date:
 client_case: 3countess
+client_truth_version: v2
 ---
 
 # EXP-001｜donix Product Delivery Harness × 3countess
@@ -21,25 +22,45 @@ client_case: 3countess
 
 本次不是再驗證 Agent 能不能寫 Spec，而是驗證 donix 是否能把別人的商業資訊轉成 Agent-readable delivery system，並完成一條真實可用的網站 Vertical Slice。
 
-## Client case
+## Client case｜3countess v2
 
 品牌：3countess / 三爵
 
-Owner 已確認：
-- 品牌定位：質感生活選物品牌。
-- 茶：主力。
-- 生活選物：主力，但目前尚無成交證據。
-- 精油：保留。
-- 預購商品：保留。
-- 手機殼：待測。
-- 目前實際只賣過茶。
-- 現有主要購買理由：朋友推薦、茶好喝。
-- 流量主要來自朋友與廣告。
-- 網站角色：看商品、建立信任、直接下單。
+Owner 最新決策：
+- 品牌定位：**質感生活選物品牌**。
+- 新站移除茶葉、精油、手機殼與舊預購商品線。
+- 新站只保留生活選物，分成三條產品線：
+  1. 收藏生活
+  2. Analog Everyday
+  3. Pet Walk EDC
+- 過去茶曾有成交，但已退出新商品策略，因此只保留為歷史證據，不影響新站 IA / 商品優先級。
+- 三條新產品線目前都尚未有實際成交證據。
+- 網站角色：看懂品牌與商品、建立信任、直接下單。
 - 現站主要問題：網站沒有帶來訂單、商品很亂、不知道從哪裡買。
 - 一年後前三個結果：網站訂單增加、新客變多、生活選物開始有穩定銷量。
 
-Client Truth 已獨立凍結於 `EXP-001-3countess-client-truth.md`。
+有效 Client Truth：`EXP-001-3countess-client-truth-v2.md`。
+舊版 v1 保留作決策歷史，但不得再餵給 Agent。
+
+## 三條產品線
+
+### A｜收藏生活
+- Hero：透明收藏展示吊掛盒
+- Attach：Photocard Holder / 徽章 Holder / Acrylic Stand Case
+- Target AOV：NT$690–1,090
+
+### B｜Analog Everyday
+- Hero：Traveler Journal Charm
+- Attach：Bookmark Charm / 黃銅書籤 / Pen Loop
+- Target AOV：NT$590–990
+
+### C｜Pet Walk EDC
+- Hero：Urban Walk Pouch
+- Use case：零食＋拾便袋＋鑰匙＋卡＋手機小物
+- Attach：Leash Pouch / Poop Bag Holder / Pet Tag
+- Target AOV：NT$790–1,290
+
+`Journal Charm +395%` 與台灣市場尚未完全商品化的觀察，獨立記錄於 `EXP-001-3countess-market-signals.md`，目前屬未驗證 Signal，不得當成 Client Truth。
 
 ## EXP-000 transfer test
 
@@ -57,8 +78,10 @@ Client Truth 已獨立凍結於 `EXP-001-3countess-client-truth.md`。
 ## Phase 0｜Client Truth + Current Site Audit
 
 已完成：
-- Owner Interview / Client Truth
+- Owner Interview / Client Truth v1
+- Owner Strategy Update / Client Truth v2
 - Public current-site audit
+- Decision Log
 
 Human authority 分工：
 - Owner = Fact Authority：品牌、商品、營運、履約與實際商業事實。
@@ -80,6 +103,8 @@ context/
   constraints.md
 audit/
   current-site.md
+research/
+  market-signals.md
 decisions/
   decision-log.md
 ```
@@ -89,11 +114,13 @@ Context 只放已知事實、已批准方向、限制與必要 Audit；不預先
 ## Phase 2｜CONSULT
 
 Agent 必須回答：
-- 三爵目前真正要解決的商業問題。
-- Master Brand 與茶 / 生活選物 / 其他商品線應如何被網站表達。
+- 三爵現在真正要解決的商業問題。
+- 三條生活選物線如何被一個 Master Brand 統合，而不變成三個互不相干的小商店。
+- 三條線的共同價值與各自購買情境應如何分工。
 - 現階段最重要的 3 個網站優先級。
-- 新客如何理解、信任、選購並下單。
-- 茶與生活選物如何共存，而不讓網站變成雜貨架。
+- 新客第一次進站如何理解品牌、辨認三條線、建立信任並採取購買行動。
+- 三條線應共用哪些網站／交易骨架，哪些差異只應存在於入口、內容與商品呈現。
+- 哪些現站元素只是 legacy，不應自動保留。
 - 哪些是 Known Facts / Inferences / Unverified Assumptions。
 - 哪些事情目前不應該做。
 
@@ -130,12 +157,12 @@ SEO 進階項目、platform-dependent capability、enhancement 等非 blocker �
 ```text
 Header / Navigation
 → Homepage
-→ Primary Collection
-→ Product Detail
+→ One Product Line / Collection
+→ Hero Product Detail
 → Add-to-cart / commerce boundary
 ```
 
-Primary journey 在 Human Gate A / B 後決定，不預設一定是茶或生活選物。
+Primary line 在 Human Gate A / B 後決定，不因未驗證市場 Signal 自動指定。
 
 Coding Agent 依 Frozen Core Spec 執行 UI / frontend / integration；不得自行新增會員、AI 導購、推薦、dashboard、crawler 或 backend。
 
@@ -191,7 +218,7 @@ Human 處理：
 ## Stop Conditions
 
 任一成立即停止擴充：
-- 為了讓 Agent理解三爵，需要反覆把完整答案餵回去。
+- 為了讓 Agent 理解三爵，需要反覆把完整答案餵回去。
 - Spec 再度膨脹到 Core / Optional 無法清楚區分。
 - Gate B 後仍頻繁改變商業方向。
 - Coding Agent 因需求理解錯誤產生大規模返工。
