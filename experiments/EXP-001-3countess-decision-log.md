@@ -93,3 +93,53 @@
 - Reason: 避免 EXP-000 已發現的 Spec Bloat，並測試 Core vs Optional Spec Rule。
 - Authority: Human Gate A
 - Status: Approved
+
+## D-013｜Human Gate B
+- Decision: `core.md` / `optional.md` / `acceptance.md` 通過 Human Gate B，但 Freeze 前只做兩類減法修正，不重跑完整 Spec。
+- Authority: Human Gate B
+- Confirmed at: 2026-08-08 20:13 Asia/Taipei
+- Status: Approved with correction
+
+### Correction A｜Commerce capability wording
+- 未確認前不得寫成已有既定 commerce capability。
+- 統一改為「由 Human 指定並確認的 commerce capability / integration boundary」。
+- `system of record`、cart / checkout contract、purchase confirmation 等在 Coding 前仍是 unresolved blocker。
+
+### Correction B｜Minimum measurement reduction
+Core 只保留第一輪 Vertical Slice 做商業判斷所需的最小事件：
+1. `view_context`
+2. `view_item`
+3. `add_to_cart`
+4. `begin_checkout`
+5. `purchase`
+
+Core 最小資料：
+- product_line
+- product / variant ID（適用事件）
+- quantity（交易事件）
+- transaction value / currency（交易事件）
+- traffic source / campaign（若現有能力可取得）
+- purchase unique order ID
+
+以下降為 Optional / later measurement contract：
+- `view_home`
+- `select_context`
+- `select_item`
+- refund / cancellation reconciliation
+- new vs returning customer definition
+- tax / shipping / refund revenue policy
+- advanced placement attribution
+
+## D-014｜Gate B Rule Transfer
+- Page Existence Rule: PASS
+- Inference ≠ Requirement: PASS
+- Shared Transaction Backbone: PASS
+- Content-to-Commerce: PASS
+- No Invented Facts: PASS WITH CORRECTION
+- Core vs Optional Spec: PASS WITH CORRECTION
+- Result: 4 / 6 rules already transfer across brands without major modification; the remaining 2 caught boundary/scope errors rather than failing.
+
+## D-015｜New Candidate Rule
+- Candidate: **Minimum Observability Before Analytics Governance**
+- Meaning: 第一輪只蒐集能回答下一個商業決策的最小資料；完整 attribution、refund taxonomy、customer lifecycle 等治理規則，等真實資料與決策需求出現後才升級。
+- Status: Candidate only; not yet donix Methodology.
