@@ -59,3 +59,37 @@
 - Authority: donix process rule based on Owner strategy change
 - Type: Experiment boundary
 - Status: Approved for EXP-001
+
+## D-008｜Working Brand Architecture
+- Decision: 進入 Core Spec 時採用「一個質感生活選物品牌 × 三個生活情境」。
+- Detail: 三條線共用品牌、信任、主要導向與交易骨架；差異主要存在於情境入口、collection、商品內容與後續依市場證據調整的曝光。
+- Boundary: 這不是正式 slogan；共同品牌價值的最終對外表述尚未 Approved。
+- Authority: Human Gate A
+- Confirmed at: 2026-08-08 19:56 Asia/Taipei
+- Status: Approved
+
+## D-009｜第一條 Vertical Slice
+- Decision: 第一條 Vertical Slice 選擇 B｜Analog Everyday，Hero 為 Traveler Journal Charm。
+- Reason: 目前唯一可用的市場 Signal 加上較集中的紙本日常使用情境，使其適合作為第一輪完整購買路徑測試。
+- Boundary: 這只是實驗優先順序，不代表已驗證主力、永久首頁主角或最終資源配置。
+- Authority: Human Gate A
+- Confirmed at: 2026-08-08 19:56 Asia/Taipei
+- Status: Approved
+
+## D-010｜Journal Charm Signal 邊界
+- Decision: `Journal Charm 搜尋 +395%` 持續標記為 Unverified Market Signal。
+- Boundary: 不得把搜尋增長等同於購買需求、台灣市場規模、可接受售價或產品市場契合。
+- Authority: Human Gate A
+- Status: Approved
+
+## D-011｜No Invented Facts Correction
+- Decision: 不得假設 3countess 為一人公司；後續 Spec 只要求降低不必要的重複維護負擔。
+- Source: CONSULT v2 Human Gate correction.
+- Authority: Human Gate A
+- Status: Approved
+
+## D-012｜Spec Layering
+- Decision: 本次 Spec 強制分為 `core.md`、`optional.md`、`acceptance.md`。
+- Reason: 避免 EXP-000 已發現的 Spec Bloat，並測試 Core vs Optional Spec Rule。
+- Authority: Human Gate A
+- Status: Approved
