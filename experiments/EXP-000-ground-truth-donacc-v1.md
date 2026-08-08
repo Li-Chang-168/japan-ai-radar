@@ -1,8 +1,9 @@
 ---
 id: EXP-000-ground-truth-donacc-v1
 experiment: EXP-000-harness-replay-test
-status: review_required
+status: frozen
 created_at: 2026-08-08
+frozen_at: 2026-08-08T15:27+08:00
 visibility: human_only
 ---
 
@@ -130,7 +131,7 @@ Replay 的 Consult / Spec 至少應理解以下方向，否則視為重大偏差
 
 ## 10. 本次 Replay 不應被要求猜出的未知資訊
 
-下列若未提供給 Agent，不應因 Agent無法猜到而扣分：
+下列若未提供給 Agent，不應因 Agent 無法猜到而扣分：
 
 - 當下最新 SKU 數量、庫存、售價與每款商品細節。
 - GA4 / Meta 廣告實際數據與現有 CVR。
@@ -155,12 +156,12 @@ Replay 的 Consult / Spec 至少應理解以下方向，否則視為重大偏差
 
 # Freeze Checklist
 
-正式將 status 改為 `frozen` 前，由 Human 檢查：
+- [x] 所有「已確定」內容在實驗前就已存在，不是今天新增的策略。
+- [x] 沒有把想測試的 Agent 答案偷塞進 Ground Truth。
+- [x] Exact IA 等尚未確定內容沒有被當成硬答案。
+- [x] 技術邊界與目前 DON ACC. 重構方向一致。
+- [x] 沒有需要刪除或降級成「合理推論」的項目。
 
-- [ ] 所有「已確定」內容在實驗前就已存在，不是今天新增的策略。
-- [ ] 沒有把想測試的 Agent 答案偷塞進 Ground Truth。
-- [ ] Exact IA 等尚未確定內容沒有被當成硬答案。
-- [ ] 技術邊界與目前 DON ACC. 重構方向一致。
-- [ ] 沒有需要刪除或降級成「合理推論」的項目。
+**Frozen by Human Gate on 2026-08-08 15:27 Asia/Taipei.**
 
-確認後才可開始建立 Replay Context Pack。
+從此時間點起，Replay 完成前不得修改本檔內容；若發現 Ground Truth 本身有錯，只能在實驗結果中記錄 limitation，不回溯修改。
