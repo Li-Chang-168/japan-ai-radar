@@ -4,7 +4,9 @@ Source: uploaded `consult(2).md` produced by Codex CONSULT v2.
 
 ## Decision
 
-**PASS WITH CORRECTION → 可進 Core Spec，但先做最小修正。**
+**CONFIRMED — PASS WITH CORRECTION → 進 Core Spec。**
+
+Human confirmed at: **2026-08-08 19:56 Asia/Taipei**
 
 ## 1. Core business problem
 - Gate: APPROVE
@@ -13,7 +15,8 @@ Source: uploaded `consult(2).md` produced by Codex CONSULT v2.
 ## 2. Brand architecture judgment
 - Gate: APPROVE
 - 「一個選物品牌，三個生活情境」是合理、可執行的統合方式，且 Agent 沒有把三條線拆成三個子品牌或三套交易系統。
-- 共同價值「圍繞日常行為 / 整理與安放在意的小事物 / 機能與個人風格」被正確標記為 Reasonable Inference，尚未越權成 Approved 品牌主張。
+- Human Gate A 正式確認：以「一個質感生活選物品牌 × 三個生活情境」作為 Working Brand Architecture 進入 Core Spec。
+- 共同價值「圍繞日常行為 / 整理與安放在意的小事物 / 機能與個人風格」仍屬 Reasonable Inference，尚未批准為正式 slogan / brand copy。
 
 ## 3. Three priorities
 - Gate: APPROVE
@@ -28,10 +31,10 @@ Source: uploaded `consult(2).md` produced by Codex CONSULT v2.
 - EXP-000 的 Shared Transaction Backbone Rule 成功重用：三條線共用品牌、交易、信任、量測與維護骨架；差異留在入口、情境內容、collection 與商品欄位。
 
 ## 6. Vertical Slice recommendation
-- Gate: APPROVE AS RECOMMENDATION
-- 建議先測 Analog Everyday，理由主要來自唯一可用的 Journal Charm 市場 Signal 與較集中的使用情境。
-- Agent 有明確標示 +395% 尚未驗證、搜尋成長 ≠ 購買意圖、不得升格為永久主力。
-- 因此沒有違反 Inference ≠ Requirement Rule。
+- Gate: APPROVED FOR EXPERIMENT ORDER
+- Human Gate A 正式選定第一條 Vertical Slice：`B｜Analog Everyday`，Hero 為 `Traveler Journal Charm`。
+- 這只是實驗優先順序，不代表已驗證主力、永久首頁主角或最終資源配置。
+- `Journal Charm 搜尋 +395%` 仍為 Unverified Market Signal，搜尋成長不得等同購買意圖。
 
 ## 7. Legacy handling
 - Gate: APPROVE
@@ -40,8 +43,8 @@ Source: uploaded `consult(2).md` produced by Codex CONSULT v2.
 ## 8. Known / Inference / Assumption separation
 - Gate: PASS WITH ONE CORRECTION
 - 整體分離良好。
-- **Correction:** 文件出現「一人公司維護三份資料」的敘述，但目前 Client Truth / v2 workspace 並未提供 3countess 是一人公司。這屬於未提供事實，不得直接寫成專案事實。
-- 修正方式：改成「避免增加重複維護負擔」即可，不需要補新的 Client Fact。
+- **Correction:** 文件出現「一人公司維護三份資料」的敘述，但目前 Client Truth / v2 workspace 並未提供 3countess 是一人公司。
+- 修正方式：後續一律改為「避免增加不必要的重複維護負擔」，不補新的 Client Fact。
 
 ## Critical Error Check
 - [ ] 誤解最新品牌定位
@@ -68,8 +71,8 @@ Source: uploaded `consult(2).md` produced by Codex CONSULT v2.
 | Inference ≠ Requirement | PASS |
 | Shared Transaction Backbone | PASS |
 | Content-to-Commerce | 尚未完整測試 |
-| No Invented Facts | **PARTIAL**：抓到一個「一人公司」未提供假設 |
-| Core vs Optional Spec | 尚未進 Spec |
+| No Invented Facts | PARTIAL：抓到一個「一人公司」未提供假設 |
+| Core vs Optional Spec | 現在進入正式測試 |
 
 ## New Candidate Insight
 
@@ -78,13 +81,12 @@ Source: uploaded `consult(2).md` produced by Codex CONSULT v2.
 
 目前只在 3countess 出現，先列 Candidate，不升級正式 donix Rule。
 
-## Human Gate A conclusion
+## Human Gate A → Core Spec Inputs
 
-**可以進 Core Spec。**
-
-在 Spec 階段加入以下 Human corrections：
 1. 不得假設 3countess 為一人公司；只要求低重複維護成本。
-2. 「一個選物品牌，三個生活情境」可作為 Approved Working Architecture 進 Spec，但共同品牌價值的正式文案仍未批准。
-3. Analog Everyday 只作第一條 Vertical Slice 的建議優先級，不是永久首頁主角或已驗證主力。
-4. +395% 仍維持 Unverified Market Signal。
-5. Spec 必須強制分為 Core / Optional / Acceptance，避免 EXP-000 的 Spec Bloat。
+2. 「一個質感生活選物品牌 × 三個生活情境」已批准為 Working Architecture。
+3. 三條共同品牌價值的正式對外文案仍未批准，不得自行凍結 slogan。
+4. 第一條 Vertical Slice 已選定 `Analog Everyday / Traveler Journal Charm`。
+5. Analog Everyday 不是永久首頁主角或已驗證主力。
+6. `+395%` 仍維持 Unverified Market Signal。
+7. Spec 必須強制分為 Core / Optional / Acceptance，避免 EXP-000 的 Spec Bloat。
