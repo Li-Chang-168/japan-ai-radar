@@ -143,3 +143,11 @@ Core 最小資料：
 - Candidate: **Minimum Observability Before Analytics Governance**
 - Meaning: 第一輪只蒐集能回答下一個商業決策的最小資料；完整 attribution、refund taxonomy、customer lifecycle 等治理規則，等真實資料與決策需求出現後才升級。
 - Status: Candidate only; not yet donix Methodology.
+
+## D-016｜Commerce Authority
+- Decision: 3countess 新站的 Human-designated commerce authority 採用 **Zenbu 原生電商能力**；對外產品／服務語境可稱為 `donix Commerce`，但 EXP-001 實作層仍需把 Zenbu 的實際 product / variant / cart / checkout / order / purchase confirmation contract 查清楚後才能進 production transaction coding。
+- Source: prior Owner decision to migrate the 3countess / donix standard e-commerce path away from WP + WooCommerce and onto Zenbu Site native commerce.
+- Boundary: 這只解決「誰是 commerce authority」；不代表 cart / checkout / purchase contract 已驗證，也不得由 Agent憑平台能力線索自行補完契約。
+- Authority: Owner / Human Gate production readiness
+- Confirmed for EXP-001 at: 2026-08-10
+- Status: Approved
