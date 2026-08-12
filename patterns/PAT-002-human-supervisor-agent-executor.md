@@ -2,7 +2,7 @@
 id: PAT-002-human-supervisor-agent-executor
 status: active
 first_seen: 2025-06-26
-last_updated: 2026-08-08
+last_updated: 2026-08-12
 signals:
   - SIG-20260216-cyberagent-two-engineers-ai-led-dev
   - SIG-20260721-cyberagent-96-products-ai-maturity
@@ -27,11 +27,11 @@ signals:
 ## 日本脈絡
 不是追求完全無人，而是把 Human-in-the-loop 放在高風險、高判斷價值的位置。
 
-## 可轉移到 donix 的部分
-你應更集中於商業問題、品牌定位、優先順序與品質判斷；把研究、規格整理、前端實作、QA、文件化交由不同 Agent workflow。
+## 可轉移部分
+團隊可以把人類集中在問題定義、優先順序、規格批准、風險判斷與最終驗收，讓 Agent 負責研究、規格整理、實作、QA 草稿與文件化，但每一層自治都要有明確邊界。
 
 ## 不可直接複製的前提
-沒有明確 spec、acceptance criteria、測試與回滾機制時，不應直接提高自治程度。
+沒有明確 spec、acceptance criteria、測試、權限邊界與回滾機制時，不應直接提高自治程度。
 
 ## 建議 Experiment
-- EXP-001-donix-product-delivery-harness
+- `EXP-001-product-delivery-harness-example.md`
