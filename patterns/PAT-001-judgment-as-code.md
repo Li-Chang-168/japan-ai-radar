@@ -2,7 +2,7 @@
 id: PAT-001-judgment-as-code
 status: active
 first_seen: 2026-01-06
-last_updated: 2026-08-08
+last_updated: 2026-08-12
 signals:
   - SIG-20260311-cyberagent-review-knowledge-loop
   - SIG-20260501-layerx-quality-harness
@@ -29,11 +29,11 @@ signals:
 ## 日本脈絡
 日本企業原本就高度重視 SOP、品質標準、review 與文件化；Agent 出現後，這些既有組織能力可以直接轉換成機器可執行 context。
 
-## 可轉移到 donix 的部分
-把品牌定位、UX 判斷、SEO、轉換、網站品質、內容原則、交付邊界做成可被 Agent 呼叫的 Skills / specs，而不是每次重新寫長 Prompt。
+## 可轉移部分
+任何團隊都可以先把高頻、容易出錯、直接影響成果品質的判斷標準做成 specs、review rules、acceptance criteria 或 agent-readable guidance，而不是每次重新寫長 Prompt。
 
 ## 不可直接複製的前提
-企業級 coding guideline 不必照搬；一人公司應只整理高頻、容易出錯、直接影響商業結果的 judgment。
+企業級 guideline 不必照搬。小團隊或獨立開發者應優先整理真正會重複使用、可檢查、可改善結果的 judgment，避免為了文件化而文件化。
 
 ## 建議 Experiment
-- EXP-001-donix-product-delivery-harness
+- `EXP-001-product-delivery-harness-example.md`
