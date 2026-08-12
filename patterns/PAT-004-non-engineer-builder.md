@@ -2,7 +2,7 @@
 id: PAT-004-non-engineer-builder
 status: active
 first_seen: 2026-04-10
-last_updated: 2026-08-08
+last_updated: 2026-08-12
 signals:
   - SIG-20260525-winticket-non-engineer-builder
   - SIG-20260410-dena-spec-driven-analytics
@@ -25,11 +25,11 @@ Claude Code、Codex、Devin 類 Agent 讓商務、設計、分析等角色開始
 ## 日本脈絡
 企業沒有完全取消工程治理，而是用 review、permission、security training、shared GitHub repo 把 Builder 能力安全地下放。
 
-## 可轉移到 donix 的部分
-品牌負責人可直接成為產品 Builder：網站、內部工具、資料分析、內容系統與客戶交付流程都可以由 business judgment 直接驅動 Agent，不必每次透過工程翻譯層。
+## 可轉移部分
+非工程背景的產品、商務、設計或營運角色可以直接成為 Builder，讓 domain judgment 更接近實作層；但必須把需求、權限、版本控制、測試與驗收變成工作流程的一部分，而不是只依賴自然語言生成結果。
 
 ## 不可直接複製的前提
-非工程師不代表不需要基本工程素養。至少要理解權限、版本控制、測試、資料安全與回滾。
+非工程師不代表不需要基本工程素養。至少要理解權限、版本控制、測試、資料安全、回滾，以及什麼情況必須交由更專業的工程審查。
 
 ## 建議 Experiment
-- EXP-001-donix-product-delivery-harness
+- `EXP-001-product-delivery-harness-example.md`
