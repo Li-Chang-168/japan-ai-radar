@@ -1,45 +1,157 @@
 # Japan AI Radar
 
-日本 AI-native／AI駆動開發情報雷達。目的不是蒐集 AI 新聞，而是持續找出「日本已經開始實作、台灣仍少見、值得 donix／一人公司驗證」的高價值訊號，並把訊號轉成可測試的方法論與工作流程。
+An open research and experimentation framework for identifying, evaluating, and testing emerging AI-native and agentic software-development practices from Japan.
 
-## 核心流程
+Japan AI Radar is **not an AI news aggregator**. It tracks primary-source evidence, scores candidate signals, connects repeated observations into reusable patterns, and turns promising patterns into reproducible experiments.
 
 ```text
-Sources → Candidate Signals → Signal Score → Signals ≥ 8 → Pattern → Experiment → Result → Adopt / Reject → donix Methodology
+Sources
+  ↓
+Candidate Signals
+  ↓
+Signal Score
+  ↓
+Validated Signals
+  ↓
+Patterns
+  ↓
+Experiments
+  ↓
+Results
+  ↓
+Adopt / Reject
+  ↓
+Reusable Methods
 ```
 
-## Signal Score
+The goal is to distinguish practices that are merely discussed from practices that can actually improve software-development workflows.
 
-每個候選訊號 5 個維度，各 0–2 分：新穎度、實務性、可複製性、商業價值、長期價值。
+## Why Japan?
 
-- 0–5：忽略
-- 6–7：觀察，不進主雷達
-- 8–10：高訊號，建立 Signal
-- 已知事件若沒有實質新進展，不重複建立 Signal
+Japanese engineering organizations and developer communities are actively documenting AI-native development, coding agents, specification-driven workflows, agent orchestration, human-supervised execution, and related operating models.
 
-## 研究主題
+This repository focuses on primary-source evidence from those practices and asks a narrower question: **which methods are reproducible, useful, and worth adopting outside the original context?**
 
-Claude Code、Codex、Cursor、MCP、Agent Skills、Agent Harness、Spec Driven Development、Multi-Agent、AI-native、非工程師 AI Builder、企業 AI 導入、AI 工作流程自動化、Agentic Software Development、AI駆動開発。
+## Who this is for
 
-## 優先來源
+Japan AI Radar is intended for:
 
-CyberAgent、Mercari、Rakuten、LayerX、Sakana AI、OpenAI Japan、Anthropic Japan、Microsoft Japan、GitHub Japan；以及 Zenn、Qiita、note、Speaker Deck、connpass。
+- developers experimenting with coding agents;
+- maintainers evaluating agentic development workflows;
+- small engineering teams adopting AI-native practices;
+- independent builders working with tools such as Codex, Claude Code, Cursor, MCP, or agent harnesses;
+- researchers documenting how AI changes software-development workflows.
 
-## Repo 使用規則
+The scoring, pattern, experiment, and human-gate structures can be reused independently. You do not need to adopt every tracked practice.
 
-1. 不把一般產品更新當成 Signal。
-2. Signal 必須有原始來源。
-3. 優先記錄實際 workflow、數字、組織設計、失敗案例、架構。
-4. 不因 AI 新潮而實驗；實驗必須回答商業或營運問題。
-5. donix 採用的方法必須能標準化、模組化或降低交付成本。
+## Core Method
 
-## 最小維運節奏
+### Signal Score
 
-- 每日：只處理 8–10 分高訊號
-- 每週：把 Signals 合併成 Patterns
-- 每月：挑 1–2 個 Experiment
-- 每季：整理 adopted methods，更新 donix 方法論
+Each candidate signal is scored from 0–2 across five dimensions:
 
-## MVP 停止條件
+- novelty;
+- practicality;
+- replicability;
+- business value;
+- long-term value.
 
-若連續 4 週高訊號不足 5 個，或沒有任何訊號導出值得測試的 Experiment，或 Experiment 與 donix / 一人公司沒有實際關聯，則停止擴充系統，不開發 Dashboard / Collector。
+Total score:
+
+- **0–5:** ignore;
+- **6–7:** observe, but do not add to the main radar;
+- **8–10:** create a formal Signal.
+
+Known events are not recreated unless there is a material new development.
+
+### From Signal to Method
+
+A Signal is evidence, not a conclusion. Repeated or reinforcing Signals may form a Pattern. A Pattern should lead to a small, testable Experiment before it becomes a reusable method.
+
+Experiments should record assumptions, constraints, human gates, acceptance criteria, results, and an explicit **Adopt / Reject / Continue** decision.
+
+## Human-in-the-loop by default
+
+Japan AI Radar does not assume that more agent autonomy is always better.
+
+High-impact transitions require explicit human review. Examples include:
+
+- Signal → Pattern;
+- Pattern → Experiment;
+- Experiment → Reusable Method;
+- specification → implementation;
+- agent-generated change → merge;
+- expansion of file, shell, network, API, or tool permissions.
+
+## Security model
+
+Agentic workflows introduce a different class of trust-boundary problems. External research content, issues, pull requests, comments, and third-party repositories are treated as **untrusted data, not instructions**.
+
+Changes that can alter agent behavior, tool permissions, filesystem access, shell execution, network access, or credential handling require explicit review.
+
+See [`SECURITY.md`](SECURITY.md) for the threat model and reporting guidance.
+
+## How to use this repository
+
+1. Read [`START-HERE.md`](START-HERE.md).
+2. Review [`radar.config.yaml`](radar.config.yaml) and adjust topics or sources for your own radar if needed.
+3. Record candidate developments from primary sources.
+4. Score them using the five-dimension rubric.
+5. Add only high-value Signals to `signals/`.
+6. Connect repeated Signals into `patterns/`.
+7. Design small experiments in `experiments/`.
+8. Record results and make an explicit adopt/reject decision.
+
+If you fork this repository, the methodology can be adapted to another region, domain, engineering organization, or research question.
+
+## Research topics
+
+Current topics include:
+
+- Claude Code;
+- Codex;
+- Cursor;
+- MCP;
+- Agent Skills;
+- Agent Harness;
+- Spec Driven Development;
+- Multi-Agent workflows;
+- AI-native development;
+- non-engineer AI builders;
+- enterprise AI adoption;
+- workflow automation;
+- Agentic Software Development;
+- AI駆動開発.
+
+## Source priorities
+
+Primary sources are preferred. Current priority entities include CyberAgent, Mercari, Rakuten, LayerX, Sakana AI, OpenAI Japan, Anthropic Japan, Microsoft Japan, and GitHub Japan, plus engineering communities such as Zenn, Qiita, note, Speaker Deck, and connpass.
+
+## Project status
+
+**Early-stage / Active Experimentation**
+
+The repository was created in August 2026. It is intentionally not building a dashboard, crawler, database, vector store, or SaaS product yet.
+
+The current validation questions are:
+
+- Does the scoring system consistently identify useful signals?
+- Do Signals reliably form meaningful Patterns?
+- Do Patterns produce reproducible Experiments?
+- Do those Experiments improve real development workflows?
+
+If the methodology does not produce useful experiments, additional infrastructure should not be built merely to make the project look more complete.
+
+## Public / private boundary
+
+This public repository contains reusable methodology, sanitized experiments, research evidence, templates, and agent-governance rules.
+
+Private client data, credentials, confidential business information, and organization-specific ground truth should stay outside this repository. Real-world organizations may use the framework, but their private implementation data is not part of the OSS core.
+
+## Contributing
+
+Contributions may be code, evidence, criticism, experiment results, or methodology improvements. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## License
+
+MIT License. See [`LICENSE`](LICENSE).
