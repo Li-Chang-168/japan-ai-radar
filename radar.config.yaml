@@ -1,0 +1,62 @@
+version: 1
+
+threshold:
+  notify_score: 8
+  max_score: 10
+  require_material_update: true
+
+score_dimensions:
+  novelty: {max: 2}
+  practicality: {max: 2}
+  replicability: {max: 2}
+  business_value: {max: 2}
+  long_term_value: {max: 2}
+
+source_policy:
+  prefer_primary_source: true
+  external_content_trusted: false
+
+agent_safety:
+  allow_shell_by_default: false
+  allow_network_write_by_default: false
+  allow_external_instruction_execution: false
+  require_human_approval_for:
+    - methodology_change
+    - agent_policy_change
+    - permission_expansion
+    - external_write
+    - code_execution
+
+topics:
+  - Claude Code
+  - Codex
+  - Cursor
+  - MCP
+  - Agent Skills
+  - Agent Harness
+  - Spec Driven Development
+  - Multi-Agent
+  - AI-native
+  - Agentic Software Development
+  - AI駆動開発
+  - 非工程師 AI Builder
+  - 企業 AI 導入
+  - 工作流程自動化
+
+priority_entities:
+  - CyberAgent
+  - Mercari
+  - Rakuten
+  - LayerX
+  - Sakana AI
+  - OpenAI Japan
+  - Anthropic Japan
+  - Microsoft Japan
+  - GitHub Japan
+
+communities:
+  - Zenn
+  - Qiita
+  - note
+  - Speaker Deck
+  - connpass

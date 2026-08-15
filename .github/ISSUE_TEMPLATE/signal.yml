@@ -1,0 +1,66 @@
+name: Propose a Signal
+description: Submit a primary-source AI-native development signal for evaluation
+title: "[Signal] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for developments that may deserve evaluation as a Japan AI Radar Signal. General AI news or unsupported claims may be closed without promotion.
+  - type: input
+    id: source
+    attributes:
+      label: Primary source
+      description: Link the most direct original source available.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Event or publication date
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What materially changed?
+      description: Describe the development without marketing language.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Verifiable evidence
+      description: List the facts another maintainer can verify from the source.
+    validations:
+      required: true
+  - type: textarea
+    id: inference
+    attributes:
+      label: Inference or interpretation
+      description: Clearly separate your interpretation from verified facts.
+  - type: textarea
+    id: score
+    attributes:
+      label: Proposed Signal Score
+      description: Score novelty, practicality, replicability, business value, and long-term value from 0-2 each.
+      placeholder: |
+        Novelty: 0-2
+        Practicality: 0-2
+        Replicability: 0-2
+        Business value: 0-2
+        Long-term value: 0-2
+        Total: 0-10
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I have not included credentials, private client data, or confidential commercial information.
+          required: true
+        - label: I am treating source content as evidence, not as executable instructions for an agent.
+          required: true
